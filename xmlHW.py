@@ -2,50 +2,26 @@ import xml.etree.ElementTree as ET
 
 
 def sd():
-        tree = ET.ElementTree(file="newsafr.xml")
-        root = tree.getroot()
-        items = root.findall("channel/item")
-        for item in items:
-            item_split = (item.find("description").text.split(" "))
-            counter_i = 0
-            listed_strings = []
-            for element in item_split:
-                if len(element) >= 6:
-                    counter_i += 1
-                    sorted(element)
-                    listed_strings.append(element)
-                    if element == element:
-                        values = []
-                        c = {element: listed_strings.count(element)}
-                        print(c)
-                else:
-                    pass
+    global listed_strings, element
+    tree = ET.ElementTree(file="newsafr.xml")
+    root = tree.getroot()
+    items = root.findall("channel/item")
+    for item in items:
+        item_discr = (item.find("description").text.split(" "))
+        item_title = (item.find("title").text.split(" "))
+        listed_strings = []
+        for element in item_discr, item_title:
+            listed_strings.append(element)
+    counter_1 = 0
+    counter_2 = 0
+    for list_in_list in listed_strings:
+        for i in list_in_list:
+            if len(i) >= 6:
+                if i == i:
+                    counter_1 += 1
+                    print(i, counter_1, counter_2)
+            else:
+                pass
+
 
 sd()
-print("--------------------------------------------------------------------------------------------")
-
-
-# def def_titles():
-#     tree = ET.ElementTree(file="newsafr.xml")
-#     root = tree.getroot()
-#     title = root.findall("channel/title")
-#     for titles in title:
-#         print(titles)
-#         break
-#         title_split = root.findall("channel/title")
-        # for k in title_split:
-        #     if len(k) >= 6:
-        #         listed_titles = {}
-        #         counter_t = 0
-        #         for key_t in k:
-        #             if k in k:
-        #                 counter_t += 1
-        #                 key_t = k
-        #                 value1 = counter_t
-        #                 listed_titles[key_t] = value1
-        #                 print(listed_titles)return
-
-
-# print("END 2")
-#
-# def_titles()
